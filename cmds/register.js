@@ -15,6 +15,28 @@ module.exports = {
                 type: 'STRING',
                 description: 'What should i search for?',
                 required: true,
+            },
+            {
+                name: 'target',
+                type: 'USER',
+                description: 'User to mention',
+                required: false,
+            },
+            {
+                name: 'source',
+                type: 'STRING',
+                description: 'Source repository to use',
+                required: false,
+                choices: [
+					{
+						name: 'stable',
+						value: 'stable',
+					},
+					{
+						name: 'master',
+						value: 'master',
+					},
+				],
             }],
         };
 
