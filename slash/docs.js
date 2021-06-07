@@ -14,7 +14,7 @@ module.exports = {
             return embed; 
         };
 
-        fetchDocs(`${interaction.options[0].value}`).then(async (docr) => {
+        fetchDocs(`${interaction.options?.find(c => c?.name === 'query').value}`).then(async (docr) => {
                 const docs = new Discord.MessageEmbed()
                 .setAuthor(`${docr.author?.name}`, `${docr.author?.icon_url}`, `${docr.author?.url}`)
                 .setTitle(`Search results:`)
