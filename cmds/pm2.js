@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
 var pm2 = require('pm2');
-
-
+const config = require('../config.json')
 
 module.exports = {
     name: "pm2",
     description: "Discord.js Buttons!",
     async execute(message, Member, args) {
+        if(message.author.id === config.ownerID) {
         let description = '';
         pm2.connect(true, function (err) {
             if (err) {
@@ -30,5 +30,8 @@ module.exports = {
             pm2.disconnect();   // Disconnects from PM2
             if (err) throw err
         });
+    } else if(message.author.id !== config.ownerID) {
+        return message.reply(`You don't have permissions!`)
+    }
     },
 };
