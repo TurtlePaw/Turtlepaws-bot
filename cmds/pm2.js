@@ -20,11 +20,11 @@ module.exports = {
                     list.forEach(process => {
                         description += `Process: ${process.name} - Status: ${process.monit}\n`;
                     });
+                    message.channel.send(
+                        new Discord.MessageEmbed()
+                            .setDescription(`Status of pm2 processes:\n${description}`)
+                    );        
                 });
-                message.channel.send(
-                    new Discord.MessageEmbed()
-                        .setDescription(`Status of pm2 processes:\n${description}`)
-                );        
             }
         }, function (err, apps) {
             pm2.disconnect();   // Disconnects from PM2
