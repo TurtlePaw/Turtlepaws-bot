@@ -11,23 +11,24 @@ module.exports = {
         pm2.connect(true, function (err) {
             if (err) {
                 console.error(err);
-                process.exit(2);
             }
-        
-            pm2.list((err, list) => {
-                console.log(err, list)
-                description += `Errors: ${err}\n`;
-                list.forEach(process => {
-                    description += `Process: ${process.name} - Status: ${process.monit}\n`;                    
+            else {
+
+                pm2.list((err, list) => {
+                    console.log(err, list)
+                    description += `Errors: ${err}\n`;
+                    list.forEach(process => {
+                        description += `Process: ${process.name} - Status: ${process.monit}\n`;
+                    });
                 });
-            });
+                message.channel.send(
+                    new Discord.MessageEmbed()
+                        .setDescription(`Status of pm2 processes:\n${description}`)
+                );        
+            }
         }, function (err, apps) {
-                pm2.disconnect();   // Disconnects from PM2
-                if (err) throw err
-            });
-            message.channel.send(
-                new Discord.MessageEmbed()
-                .setDescription(`Status of pm2 processes:\n${description}`)
-            );
+            pm2.disconnect();   // Disconnects from PM2
+            if (err) throw err
+        });
     },
 };
