@@ -16,7 +16,10 @@ module.exports = {
         
             pm2.list((err, list) => {
                 console.log(err, list)
-                description += `${err}:${list}\n`;
+                description += `Errors: ${err}\n`;
+                list.forEach(process => {
+                    description += `Process: ${process.name} - Status: ${process.monit}\n`;                    
+                });
             });
         }, function (err, apps) {
                 pm2.disconnect();   // Disconnects from PM2
