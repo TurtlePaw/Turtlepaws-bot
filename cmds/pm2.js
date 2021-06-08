@@ -16,9 +16,9 @@ module.exports = {
 
                 pm2.list((err, list) => {
                     console.log(err, list)
-                    description += `Errors: ${err}\n`;
+                    description += `Errors: ${err ?? 'None'}\n`;
                     list.forEach(process => {
-                        description += `Process: ${process.name} - Status: ${process.monit}\n`;
+                        description += `Process: ${process.name} - Status: ${process.pm2_env?.status ?? "What?"}\n`;
                     });
                     message.channel.send(
                         new Discord.MessageEmbed()
