@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 
 module.exports = {
-    name: 'registerbb',
-    description: 'DEV ONLY',
+    name: 'register',
+    description: 'Register a slash command!',
     async execute(message, Member, args) {
         const client = message.client
         if (!client.application?.owner) await client.application?.fetch();

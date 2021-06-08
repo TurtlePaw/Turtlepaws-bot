@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 module.exports = {
  name: "mention",
- description: "Returns latency and API ping",
+ description: "Learn how to mention users in an embed",
  async execute(message, Member, args) {
    message.channel.send(
        new Discord.MessageEmbed()

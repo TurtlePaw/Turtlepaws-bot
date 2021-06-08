@@ -1,8 +1,6 @@
 const Discord = require("discord.js");
 module.exports = {
  name: "ping",
- category: 'Info',
- category: "info",
  description: "Returns latency and API ping",
  async execute(message, Member, args) {
    message.channel.send(`🏓 Pinging....`).then((msg) => {

@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 module.exports = {
  name: "r4",
- description: "Returns latency and API ping",
+ description: "Rule 4",
  async execute(message, Member, args) {
    message.channel.send(
        new Discord.MessageEmbed()

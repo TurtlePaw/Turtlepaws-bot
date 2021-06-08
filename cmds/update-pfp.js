@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const config = require('../config.json')
 module.exports = {
  name: "update",
- description: "Returns latency and API ping",
+ description: "Update me to turtlepaws avatar!",
  async execute(message, Member, args) {
      if(message.author.id === config.ownerID) {
     message.client.user.setAvatar(`${message.author.displayAvatarURL()}`);

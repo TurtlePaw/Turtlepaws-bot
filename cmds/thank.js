@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const messagess = require('../models/thanks')
 module.exports = {
  name: "thank",
- description: "Returns latency and API ping",
+ description: "Thank a user for helping you!",
  async execute(message, Member, args) {
      const thankuser = message.mentions.users.first();
      if(!thankuser){

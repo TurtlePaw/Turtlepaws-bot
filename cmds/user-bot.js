@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 module.exports = {
  name: "user-bot",
- description: "Returns latency and API ping",
+ description: "Are you a bot?",
  async execute(message, Member, args) {
     if (message.author.bot){
         message.channel.send(
