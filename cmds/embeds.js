@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 module.exports = {
  name: "embeds",
+ aliases: ['edit-embeds'],
  description: "Learn how to create embeds!",
  async execute(message, Member, args) {
    message.channel.send(
