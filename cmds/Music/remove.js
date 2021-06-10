@@ -5,6 +5,7 @@ module.exports = {
 	name: 'remove',
 	description: 'Remove a user to play music!',
 	async execute(message, Member, args) {
+        if (message.member.permissions.has('ADMINISTRATOR')) {
 		let newuser = message.mentions.users.first() || args[0]
         if(!newuser || !args[0]) {
             return message.reply(
@@ -34,5 +35,6 @@ module.exports = {
             .setDescription(`Removed ${newuser} to \`play\`, \`queue\`, \`pause\` and \`change the volume\``)
             .setColor('BLUE')
         );
+        }
 	}
 };
