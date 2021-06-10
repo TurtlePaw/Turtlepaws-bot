@@ -3,7 +3,7 @@ module.exports = {
 	description: 'Resume command.',
 	cooldown: 5,
 	execute(message) {
-		if (!message.member.permissions.has('ADMINISTRATOR')) {
+		if (message.member.permissions.has('ADMINISTRATOR')) {
 		const serverQueue = message.client.queue.get(message.guild.id);
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;

@@ -2,7 +2,7 @@ module.exports = {
 	name: 'queue',
 	description: 'Queue command.',
 	execute(message, Member, args) {
-		if (!message.member.permissions.has('ADMINISTRATOR')) {
+		if (message.member.permissions.has('ADMINISTRATOR')) {
 		const serverQueue = message.client.queue.get(message.guild.id);
 		if (!serverQueue) return message.channel.send('There is nothing playing.');
 		return message.channel.send(`

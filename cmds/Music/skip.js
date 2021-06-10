@@ -3,7 +3,7 @@ module.exports = {
 	description: 'Skip command.',
 	cooldown: 5,
 	execute(message, Member, args) {
-		if (!message.member.permissions.has('ADMINISTRATOR')) {
+		if (message.member.permissions.has('ADMINISTRATOR')) {
 		const { channel } = message.member.voice;
 		if (!channel) return message.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
 		const serverQueue = message.client.queue.get(message.guild.id);

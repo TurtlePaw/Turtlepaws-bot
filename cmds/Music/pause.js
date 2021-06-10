@@ -2,7 +2,7 @@ module.exports = {
 	name: 'pause',
 	description: 'Pause command.',
 	execute(message, Member, args) {
-		if (!message.member.permissions.has('ADMINISTRATOR')) {
+		if (message.member.permissions.has('ADMINISTRATOR')) {
 		const serverQueue = message.client.queue.get(message.guild.id);
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
