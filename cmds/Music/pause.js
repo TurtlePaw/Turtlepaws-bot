@@ -1,8 +1,13 @@
+const perms = require('../../models/perms');
+
 module.exports = {
 	name: 'pause',
 	description: 'Pause command.',
-	execute(message, Member, args) {
-		if (message.member.permissions.has('ADMINISTRATOR')) {
+	async execute(message, Member, args) {
+		let messageUser = await perms.findOne({
+            user: message.author.id
+        });
+		if (message.member.permissions.has('ADMINISTRATOR') || messageUser.perm === true) {
 		const serverQueue = message.client.queue.get(message.guild.id);
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;

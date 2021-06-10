@@ -1,12 +1,16 @@
 const { Util } = require('discord.js');
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
+const perms = require('../../models/perms');
 
 module.exports = {
 	name: 'play',
 	description: 'Play command.',
 	async execute(message, Member, args) {
-		if (message.member.permissions.has('ADMINISTRATOR')) {
+		let messageUser = await perms.findOne({
+            user: message.author.id
+        });
+		if (message.member.permissions.has('ADMINISTRATOR') || messageUser.perm === true) {
         if(!args[0]){
             return message.reply(
                 new Discord.MessageEmbed()
