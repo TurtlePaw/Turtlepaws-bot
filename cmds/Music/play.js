@@ -73,6 +73,9 @@ module.exports = {
 			await channel.leave();
 			return message.channel.send(`I could not join the voice channel: ${error}`);
 		}
+		if(channel.type === 'stage') {
+			message.guild.me.voice.setRequestToSpeak(true);
+		}
 	}
 	}
 };
