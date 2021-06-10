@@ -105,6 +105,7 @@ client.on('message', async message => {
             )
     }
 });
+client.queue = new Map();
 client.on('message', async message => {
     var Member;
     var differentDays = 0;
