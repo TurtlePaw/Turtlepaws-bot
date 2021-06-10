@@ -6,6 +6,7 @@ module.exports = {
 	name: 'play',
 	description: 'Play command.',
 	async execute(message, Member, args) {
+		if (!message.member.permissions.has('ADMINISTRATOR')) {
         if(!args[0]){
             return message.reply(
                 new Discord.MessageEmbed()
@@ -72,5 +73,6 @@ module.exports = {
 			await channel.leave();
 			return message.channel.send(`I could not join the voice channel: ${error}`);
 		}
+	}
 	}
 };

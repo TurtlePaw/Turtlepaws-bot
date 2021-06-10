@@ -3,6 +3,7 @@ module.exports = {
 	description: 'Resume command.',
 	cooldown: 5,
 	execute(message) {
+		if (!message.member.permissions.has('ADMINISTRATOR')) {
 		const serverQueue = message.client.queue.get(message.guild.id);
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
@@ -10,5 +11,6 @@ module.exports = {
 			return message.channel.send('▶ Resumed the music for you!');
 		}
 		return message.channel.send('There is nothing playing.');
+	}
 	}
 };
