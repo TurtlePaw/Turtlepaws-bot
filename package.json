@@ -29,6 +29,7 @@
         "discord-xp": "^1.1.14",
         "discord.js": "^13.0.0-dev.f7e420bf290f5404e8b99b8896c63e178f77bbfc",
         "dog-img": "^1.0.1",
+        "emoji-regex": "^7.0.3",
         "ffmpeg": "^0.0.4",
         "ffmpeg-static": "^4.3.0",
         "generate-password": "^1.6.0",

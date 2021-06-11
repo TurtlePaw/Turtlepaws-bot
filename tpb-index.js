@@ -59,6 +59,45 @@ client.on('interaction', async interaction => {
         }
     }
 });
+const emojiRegex = require('emoji-regex/RGI_Emoji.js');
+const emojii = require('./models/emojis')
+// EMOJI STUFF
+//Already on turtlebot =>
+// client.on('message', async message => {
+//     const hasEmoteRegex = /<a?:.+:\d+>/gm
+//     const emoteRegex = /<:.+:(\d+)>/gm
+//     const animatedEmoteRegex = /<a:.+:(\d+)>/gm
+  
+//     const messages = await message.channel.messages.fetch()
+//     //const message = await messages.find(m => m.content.match(hasEmoteRegex))
+//   //emoji = 
+//     if (emoji = emoteRegex.exec(message) || animatedEmoteRegex.exec(message)) {
+//     let messageUser = await emojii.findOne({
+//         emoji: emoji[0]
+//     });
+
+//     if (!messageUser) {
+//         messageUser = new emojii({
+//             emoji: emoji[0],
+//             user: message.author.id,
+//             guild: message.guild.id,
+//             uses: 0
+//         });
+//         await messageUser.save().catch(e => console.log(e));
+//     };
+
+//     await emojii.findOne({
+//         emoji: emoji[0]
+//     }, async (err, dUser) => {
+//         if (err) console.log(err);
+//         dUser.uses += 1;
+//         await dUser.save().catch(e => console.log(e));
+//     });
+//     console.log(`Added ${emoji[0]}`)
+//     }
+// });
+//
+//END
 client.on("message", message => {
     const args = message.content.split(" ").slice(1);
     const clean = text => {
