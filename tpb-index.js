@@ -59,7 +59,7 @@ client.on('interaction', async interaction => {
         }
     }
 });
-const emojiRegex = require('emoji-regex/RGI_Emoji.js');
+// const emojiRegex = require('emoji-regex/RGI_Emoji.js');
 const emojii = require('./models/emojis')
 // EMOJI STUFF
 //Already on turtlebot =>
